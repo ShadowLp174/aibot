@@ -1,0 +1,6 @@
+{
+  "token": "your-discord-token",
+  "plantnet": "your-plantnet-token",
+  "clientId": "your-application-id",
+  "guildIds": ["your-guild-id"]
+}
