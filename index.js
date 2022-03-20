@@ -57,6 +57,7 @@ client.on("messageCreate", async message => {
 		https.get(image, async (stream) => {
 			const plant = await identifier.identify(stream, lang);
 			console.log(plant.data);
+			if (plant.status != 200) {message.reply("An error occured or the plant could not be identified."); return;} 
 			const result = plant.data.results[0];
 			console.log(result);
 			message.reply({ embeds: [identifier.createEmbed(result)] });
