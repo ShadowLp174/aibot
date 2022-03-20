@@ -55,10 +55,14 @@ client.on("messageCreate", async message => {
     });
 		if (!image) {message.reply("Please attach an image to identify"); return;}
 		https.get(image, async (stream) => {
-			const plant = await identifier.identify(stream, lang);
-			if (plant.status != 200) {message.reply("An error occured or the plant could not be identified."); return;}
-			const result = plant.data.results[0];
-			message.reply({ embeds: [identifier.createEmbed(result)] });
+			identifier.identify(stream, lang).then((plant) => {
+				if (plant.status != 200) {message.reply("An error occured, or the plant could not be identified."); return;}
+				const result = plant.data.results[0];
+				message.reply({ embeds: [identifier.createEmbed(result)] });
+			}).catch((error) => {
+				message.reply("An error occured, or the plant could not be identified.");
+				console.log("error", error);
+			});
 		});
   }
 });

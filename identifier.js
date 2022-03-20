@@ -15,7 +15,6 @@ class PlantIdentifier {
       let form = new FormData();
 
     	form.append('images', image);
-
     	try {
     		const { status, data } = await axios.post(
     			this.API_URL + this.API_PRIVATE_KEY + lang,
