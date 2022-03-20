@@ -16,7 +16,8 @@ const rest = new REST({ version: '9' }).setToken(token);
 
 (async () => {
 	try {
-		console.log('Started refreshing application (/) commands.');
+		console.log("currently disabled");
+		/*console.log('Started refreshing application (/) commands.');
 
 		for (let i = 0; i < guildIds.length; i++) {
 			await rest.put(
@@ -25,7 +26,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 			);
 		}
 
-		console.log('Successfully reloaded application (/) commands.');
+		console.log('Successfully reloaded application (/) commands.');*/
 	} catch (error) {
 		console.error(error);
 	}
