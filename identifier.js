@@ -42,10 +42,11 @@ class PlantIdentifier {
   }
   createEmbed(data) {
     let species = data.species;
+    let id = (data.gbif) ? data.gbif.id : "";
     return new MessageEmbed()
       .setColor("#349D43")
       .setTitle(species.scientificName)
-      .setURL("https://www.gbif.org/species/" + data.gbif.id)
+      .setURL("https://www.gbif.org/species/" + id)
       .setDescription("Aka: " + species.commonNames.join(", "))
       .addFields(
         { name: "Genus", value: species.genus.scientificName, inline: true },
